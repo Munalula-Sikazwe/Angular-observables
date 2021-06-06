@@ -27,7 +27,7 @@ setInterval(()=>{
 });
  this.firstsubscription =customObservable.subscribe(data=>{
   console.log(data);
-},error => { console.log(error); alert(error.message);});
+},error => { console.log(error); alert(error.message);},()=>{console.log('Completed at 4 before the error')});
   }
   ngOnDestroy() {
     this.firstsubscription.unsubscribe()
