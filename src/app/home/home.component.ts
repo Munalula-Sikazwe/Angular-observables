@@ -16,6 +16,9 @@ const customObservable  = new Observable(observer=>{
 let count = 0;
 setInterval(()=>{
   observer.next(count);
+  if (count > 3){
+    observer.error(new Error("Less than three idiot less than three!"))
+  }
   count++;
 },1000)
 });
