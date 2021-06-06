@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,10 @@ setInterval(()=>{
   count++;
 },1000)
 });
- this.firstsubscription =customObservable.subscribe(data=>{
+
+ this.firstsubscription = customObservable.pipe( map((data)=>{
+  return  "Round" + data;
+})).subscribe(data=>{
   console.log(data);
 },error => { console.log(error); alert(error.message);},()=>{console.log('Completed at 4 before the error')});
   }
