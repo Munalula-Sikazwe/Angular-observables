@@ -27,8 +27,10 @@ setInterval(()=>{
 },1000)
 });
 
- this.firstsubscription = customObservable.pipe( map((data)=>{
-  return  "Round" + data;
+ //@ts-ignore
+    this.firstsubscription = customObservable.pipe( map((data:number)=>{
+  return `Round: ${data+1}` ;
+
 })).subscribe(data=>{
   console.log(data);
 },error => { console.log(error); alert(error.message);},()=>{console.log('Completed at 4 before the error')});
